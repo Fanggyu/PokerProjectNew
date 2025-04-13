@@ -87,6 +87,10 @@ export const defaultRanges: RangeData = {
       if (rowIndex === colIndex) {
         return rowIndex < 10 ? "raise" : "call"
       } else if (rowIndex < colIndex) {
+        // Make A7s and everything to its right fold
+        if (rowIndex === 0 && colIndex >= 5) return "fold"
+        // Make K9s and everything to its right fold
+        if (rowIndex === 1 && colIndex >= 7) return "fold"
         if (rowIndex < 5 && colIndex < 8) return "raise"
         if (rowIndex < 7 && colIndex < 10) return "call"
         return "fold"
