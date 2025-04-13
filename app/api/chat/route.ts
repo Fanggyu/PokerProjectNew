@@ -6,7 +6,13 @@ if (!apiKey) {
   throw new Error("GOOGLE_AI_API_KEY environment variable is not set")
 }
 
-console.log('API Key loaded:', apiKey ? 'Yes' : 'No')
+console.log('Environment check:', {
+  nodeEnv: process.env.NODE_ENV,
+  apiKeyPresent: !!apiKey,
+  apiKeyLength: apiKey?.length,
+  apiKeyPrefix: apiKey?.substring(0, 4),
+  apiKeySuffix: apiKey?.substring(apiKey.length - 4)
+})
 
 const genAI = new GoogleGenerativeAI(apiKey)
 
