@@ -10,7 +10,6 @@ interface RangeState {
   selectedPosition: PositionType
   userRanges: RangeData
   customRanges: CustomRanges
-  compareMode: boolean
 
   // Actions
   setSelectedPosition: (position: PositionType) => void
@@ -18,7 +17,6 @@ interface RangeState {
   saveCustomRange: (position: PositionType, name: string) => void
   loadCustomRange: (position: PositionType, name: string) => void
   resetToDefault: () => void
-  toggleCompareMode: () => void
   initializeStore: () => void
 
   // Selectors
@@ -33,7 +31,6 @@ export const useRangeStore = create<RangeState>()(
       selectedPosition: "UTG",
       userRanges: JSON.parse(JSON.stringify(defaultRanges)), // Deep clone default ranges
       customRanges: {},
-      compareMode: false,
 
       // Actions
       setSelectedPosition: (position) => set({ selectedPosition: position }),
@@ -78,8 +75,6 @@ export const useRangeStore = create<RangeState>()(
           return { userRanges: newUserRanges }
         })
       },
-
-      toggleCompareMode: () => set((state) => ({ compareMode: !state.compareMode })),
 
       initializeStore: () => {
         // This function ensures the store is properly initialized

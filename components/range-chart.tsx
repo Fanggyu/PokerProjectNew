@@ -6,13 +6,12 @@ import type { ActionType } from "@/lib/types"
 
 interface RangeChartProps {
   isEditable: boolean
-  isDefaultRange: boolean
 }
 
-export function RangeChart({ isEditable, isDefaultRange }: RangeChartProps) {
+export function RangeChart({ isEditable }: RangeChartProps) {
   const { selectedPosition, getHandMatrix, updateHandAction, getActionColor } = useRangeStore()
 
-  const handMatrix = getHandMatrix(selectedPosition, isDefaultRange)
+  const handMatrix = getHandMatrix(selectedPosition, false)
   const ranks = ["A", "K", "Q", "J", "T", "9", "8", "7", "6", "5", "4", "3", "2"]
 
   // Handle cell click to cycle through actions
