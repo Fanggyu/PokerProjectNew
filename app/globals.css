@@ -1,0 +1,179 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@400;600&display=swap');
+
+@layer base {
+  :root {
+    --background: 120 25% 8%;
+    --foreground: 45 100% 90%;
+    --card: 120 25% 12%;
+    --card-foreground: 45 100% 90%;
+    --popover: 120 25% 12%;
+    --popover-foreground: 45 100% 90%;
+    --primary: 45 100% 50%;
+    --primary-foreground: 120 25% 8%;
+    --secondary: 120 25% 15%;
+    --secondary-foreground: 45 100% 90%;
+    --muted: 120 25% 15%;
+    --muted-foreground: 45 100% 70%;
+    --accent: 45 100% 50%;
+    --accent-foreground: 120 25% 8%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 120 25% 20%;
+    --input: 120 25% 20%;
+    --ring: 45 100% 50%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 120 25% 8%;
+    --foreground: 45 100% 90%;
+    --card: 120 25% 12%;
+    --card-foreground: 45 100% 90%;
+    --popover: 120 25% 12%;
+    --popover-foreground: 45 100% 90%;
+    --primary: 45 100% 50%;
+    --primary-foreground: 120 25% 8%;
+    --secondary: 120 25% 15%;
+    --secondary-foreground: 45 100% 90%;
+    --muted: 120 25% 15%;
+    --muted-foreground: 45 100% 70%;
+    --accent: 45 100% 50%;
+    --accent-foreground: 120 25% 8%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 120 25% 20%;
+    --input: 120 25% 20%;
+    --ring: 45 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Montserrat', sans-serif;
+    background-image: 
+      linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+      url('https://images.unsplash.com/photo-1596838132731-3301c3fd4317?q=80&w=2070&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    @apply text-gold-500;
+  }
+}
+
+/* Range Chart Styling */
+.range-chart-container {
+  width: 100%;
+  overflow-x: auto;
+  padding: 1px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 0.5rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.range-chart {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--border);
+  table-layout: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.hand-cell {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid var(--border);
+  font-size: 0.75rem;
+  transition: all 0.2s;
+  position: relative;
+  color: var(--foreground);
+  font-family: 'Playfair Display', serif;
+}
+
+@media (min-width: 640px) {
+  .hand-cell {
+    width: 50px;
+    height: 50px;
+    font-size: 0.875rem;
+  }
+}
+
+/* Hand type styling */
+.hand-type-pair {
+  background-color: rgba(0, 0, 0, 0.5);
+  font-weight: bold;
+}
+
+.hand-type-suited {
+  color: var(--foreground);
+}
+
+.hand-type-offsuit {
+  color: var(--foreground);
+}
+
+/* Action styling - these will override the hand type backgrounds */
+.bg-green-500 {
+  background-color: #10b981 !important;
+  color: white !important;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+}
+
+.bg-blue-500 {
+  background-color: #3b82f6 !important;
+  color: white !important;
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+}
+
+.bg-purple-500 {
+  background-color: #8b5cf6 !important;
+  color: white !important;
+  box-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+}
+
+.bg-red-500 {
+  background-color: #ef4444 !important;
+  color: white !important;
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+}
+
+.bg-gray-200 {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.editable {
+  cursor: pointer;
+}
+
+.editable:hover {
+  opacity: 0.8;
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+}
+
+/* Casino-themed elements */
+.casino-card {
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 0.5rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.text-gold-500 {
+  color: #FFD700;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
