@@ -17,32 +17,34 @@ export default function HomePage() {
   }, [initializeStore])
 
   return (
-    <main className="w-full max-w-[393px] mx-auto px-2 py-4">
-      <h1 className="text-xl font-bold mb-4 text-center text-gold-500">Poker Dream Winning Secret</h1>
+    <main className="w-full max-w-[393px] mx-auto px-1 py-2">
+      <h1 className="text-lg font-bold mb-2 text-center text-gold-500">Poker Dream Winning Secret</h1>
 
-      <div className="mb-3 casino-card p-2">
+      <div className="mb-2 casino-card p-1">
         <PositionSelector />
       </div>
 
-      <div className="mb-3 casino-card p-2">
+      <div className="mb-2 casino-card p-1">
         <ActionLegend />
       </div>
 
-      <div className="casino-card p-2">
-        <div className="flex flex-col gap-2 mb-3">
-          <h2 className="text-base font-semibold text-gold-500">Range for {selectedPosition}</h2>
+      <div className="casino-card p-1">
+        <div className="flex flex-col gap-1 mb-2">
+          <h2 className="text-sm font-semibold text-gold-500">Range for {selectedPosition}</h2>
           <Button 
             variant="outline" 
             onClick={resetToDefault} 
-            className="w-full border-gold-500 text-gold-500 hover:bg-gold-500/10"
+            className="w-full border-gold-500 text-gold-500 hover:bg-gold-500/10 py-1"
           >
             Reset to Default
           </Button>
         </div>
-        <RangeChart isEditable={true} />
+        <div className="w-full aspect-square">
+          <RangeChart isEditable={true} />
+        </div>
       </div>
 
-      <div className="mt-4">
+      <div className="mt-2">
         <TestGemini />
       </div>
     </main>

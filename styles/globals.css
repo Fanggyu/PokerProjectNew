@@ -14,18 +14,27 @@ body {
 
 @layer components {
   .range-chart-container {
-    @apply w-full overflow-x-auto;
+    @apply w-full;
+    max-width: 380px; /* Slightly less than iPhone 16 width to account for padding */
+    padding: 0;
+    margin: 0 auto;
   }
 
   .range-chart {
     @apply w-full border-collapse;
+    table-layout: fixed;
+    border-spacing: 0;
   }
 
   .hand-cell {
-    @apply relative text-center align-middle border border-gray-200 p-0.5 text-[10px] sm:text-xs md:text-sm;
+    @apply relative text-center align-middle border border-gray-200 text-[7px] sm:text-[8px] md:text-[10px];
     aspect-ratio: 1;
     min-width: 0;
-    width: calc(100% / 13);
+    width: calc(380px / 13); /* Fixed width based on container */
+    height: calc(380px / 13);
+    line-height: 1;
+    padding: 0.1rem;
+    margin: 0;
   }
 
   .hand-cell.editable {
