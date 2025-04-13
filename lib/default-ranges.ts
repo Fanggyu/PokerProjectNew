@@ -12,18 +12,34 @@ const generateDefaultMatrix = () => {
 export const defaultRanges: RangeData = {
   UTG: generateDefaultMatrix().map((row, rowIndex) =>
     row.map((_, colIndex) => {
-      // Pairs (diagonal)
+      // Specific hand changes
+      if (
+        (rowIndex === 1 && colIndex === 4) || // KTs
+        (rowIndex === 2 && colIndex === 4) || // QTs
+        (rowIndex === 2 && colIndex === 3) || // QJs
+        (rowIndex === 3 && colIndex === 2) || // QJo
+        (rowIndex === 3 && colIndex === 1)    // KJo
+      ) {
+        return "fold"
+      }
+      if (
+        (rowIndex === 4 && colIndex === 0) || // ATo
+        (rowIndex === 8 && colIndex === 8) || // 66
+        (rowIndex === 9 && colIndex === 9) || // 55
+        (rowIndex === 10 && colIndex === 10) || // 44
+        (rowIndex === 11 && colIndex === 11) || // 33
+        (rowIndex === 12 && colIndex === 12)  // 22
+      ) {
+        return "call"
+      }
+      // Default logic for other hands
       if (rowIndex === colIndex) {
         return rowIndex < 6 ? "raise" : rowIndex < 8 ? "call" : "fold"
-      }
-      // Suited hands (above diagonal)
-      else if (rowIndex < colIndex) {
+      } else if (rowIndex < colIndex) {
         if (rowIndex < 2 && colIndex < 4) return "raise"
         if (rowIndex < 3 && colIndex < 5) return "call"
         return "fold"
-      }
-      // Offsuit hands (below diagonal)
-      else {
+      } else {
         if (rowIndex < 3 && colIndex < 2) return "raise"
         if (rowIndex < 4 && colIndex < 3) return "call"
         return "fold"
