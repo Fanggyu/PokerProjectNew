@@ -12,6 +12,56 @@ body {
   }
 }
 
+@layer components {
+  .range-chart-container {
+    @apply w-full overflow-x-auto;
+  }
+
+  .range-chart {
+    @apply w-full border-collapse;
+  }
+
+  .hand-cell {
+    @apply relative text-center align-middle border border-gray-200 p-0.5 text-[10px] sm:text-xs md:text-sm;
+    aspect-ratio: 1;
+    min-width: 0;
+    width: calc(100% / 13);
+  }
+
+  .hand-cell.editable {
+    @apply cursor-pointer hover:opacity-80;
+  }
+
+  .hand-type-pair {
+    @apply bg-gray-100;
+  }
+
+  .hand-type-suited {
+    @apply bg-white;
+  }
+
+  .hand-type-offsuit {
+    @apply bg-gray-50;
+  }
+
+  /* Action colors */
+  .action-raise {
+    @apply bg-[#FF6B6B] text-white;
+  }
+
+  .action-call {
+    @apply bg-[#4ECDC4] text-white;
+  }
+
+  .action-3bet {
+    @apply bg-[#45B7D1] text-white;
+  }
+
+  .action-fold {
+    @apply bg-[#96CEB4] text-white;
+  }
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

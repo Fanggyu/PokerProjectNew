@@ -18,13 +18,13 @@ export function PositionSelector() {
   ]
 
   return (
-    <div className="flex flex-wrap justify-center gap-2">
+    <div className="flex flex-nowrap justify-between gap-1.5">
       {positions.map((position) => (
         <Button
           key={position.value}
           variant="outline"
           className={cn(
-            "min-w-[80px] text-gold-500",
+            "flex-1 min-w-0 px-2 py-1 text-xs sm:text-sm text-gold-500",
             selectedPosition === position.value 
               ? "font-extrabold border-2 border-gold-500 hover:text-gold-600" 
               : "border-gold-500 hover:bg-gold-500/10"
